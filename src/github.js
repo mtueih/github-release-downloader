@@ -10,6 +10,10 @@ export async function getLatestReleaseTag(repoInfo) {
   const githubReleaseLatestUrl = `${githubReleaseUrlPrefix}/latest`;
   const githubReleaseTagUrlPrefix = `${githubReleaseUrlPrefix}/tag/`;
 
+  /**
+   * 向 releases/latest 发起请求。不跟随重定向。
+   * 仅从响应中的重定向目标网址中获取最新发行版本的标签。
+   */
   let response;
 
   try {
@@ -18,6 +22,7 @@ export async function getLatestReleaseTag(repoInfo) {
     return null;
   }
 
+  /* releases/latest 的响应的状态码一般都是 302。 */
   if (response.status !== 302) {
     return null;
   }

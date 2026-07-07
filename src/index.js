@@ -25,13 +25,16 @@ export default {
       return new Response("Internal Server Error", {status: 500});
     }
 
+    /* 定义网址中允许的占位符，以及其值。 */
     const urlPlaceholders = [
       ["tag", `${tagInfo.tag}`],
       ["version", `${tagInfo.tag.replaceAll(/^v/g, "")}`],
     ];
 
-    console.log(urlPlaceholders);
-
+    /**
+     * 获取解码后的文件名。用来替换其中的占位符。
+     * 占位符使用花括号（‘{’、‘}’）包裹，花括号会被编码。
+     */
     let filename = decodeURIComponent(urlParseRet.file);
 
     for (const placeholder of urlPlaceholders) {

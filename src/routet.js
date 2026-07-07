@@ -14,6 +14,7 @@ export async function requestUrlParser(requestUrl) {
     return null;
   }
 
+  /* 移除开头的 ‘/’。避免使用 .filter(Boolean)，前者更高效。 */
   const urlPaths = url.pathname.slice(1).split("/");
 
   if (urlPaths.length !== 3) {
