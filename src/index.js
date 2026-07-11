@@ -26,7 +26,6 @@ export default {
 			["tag", `${tagInfo.tag}`],
 			["version", `${tagInfo.tag.replaceAll(/^v/g, "")}`],
 		]);
-
 		/**
 		 * 获取解码后的文件名。用来替换其中的占位符。
 		 * 占位符使用花括号（‘{’、‘}’）包裹，花括号会被编码。

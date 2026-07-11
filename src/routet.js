@@ -8,7 +8,6 @@
 export async function requestUrlParser(requestUrlString) {
 	/* 构造 URL 对象。 */
 	let requestUrl;
-
 	try {
 		requestUrl = new URL(requestUrlString);
 	} catch {
@@ -17,7 +16,6 @@ export async function requestUrlParser(requestUrlString) {
 
 	/* 提取路径各部分（路径段）。 */
 	const pathSegments = requestUrl.pathname.split("/").filter(Boolean);
-
 	if (pathSegments.length !== 3) {
 		return null;
 	}
