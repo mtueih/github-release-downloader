@@ -1,5 +1,5 @@
 {
-	"name": "gh-latest-proxy",
+	"name": "github-latest-release-downloader",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
